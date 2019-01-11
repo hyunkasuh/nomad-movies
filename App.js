@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 import { AppLoading, Font } from "expo";
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import Asset from 'expo-asset/src/Asset';
+import MainNavigation from "./navigation/MainNavigation"
 
 export default class App extends React.Component {
   state = {
-    loaded: false
+    loaded: true //false
   };
 
   handleError = (error) => console.log(error);
@@ -14,9 +14,8 @@ export default class App extends React.Component {
   handleLoaded = () => this.setState({ loaded: true });
 
   loadeAssets = async () => {
-    throw new Error("Im hungry!!!");
     await Font.loadAsync({
-      ...Iconicons.font
+      ...Ionicons.font
     });
     // await Asset.loadAsync([
     //   require("images/icon.png")
@@ -27,9 +26,10 @@ export default class App extends React.Component {
     const { loaded } = this.state;
     if (loaded) {
       return (
-        <View style={styles.container}>
-          <Text>Open up App.js to start working on your app!</Text>
-        </View>
+        <>
+          <StatusBar barStyle="light-content" />
+          <MainNavigation />
+        </>
       );
     } else {
       return (
@@ -43,11 +43,3 @@ export default class App extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

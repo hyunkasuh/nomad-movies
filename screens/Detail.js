@@ -1,4 +1,8 @@
 import React from "react";
-import { Text } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 
-export default () => <Text>Detail</Text>;
+export default () => (
+    <>
+        <Text>Detail</Text>
+    </>
+);
