@@ -8,34 +8,34 @@ const api = axios.create({
     }
 });
 
-export const moviesApi = {
-    nowPlaying: () => api.get("movie/now_playing"),
-    upcoming: () => api.get("movie/upcoming"),
-    popular: () => api.get("movie/popular"),
-    movieDetail: (id) => api.get(`movie/${id}`, {
+export const movies = {
+    getPopular: () => api.get("movie/popular"),
+    getUpcoming: () => api.get("movie/upcoming"),
+    getNowPlaying: () => api.get("movie/now_playing"),
+    getMovies: (id) => api.get(`movie/${id}`, {
         params: {
             append_to_response: "videos"
         }
     }),
-    movieSearch: (term) => api.get("search/movie", {
+    searchMovies: (term) => api.get("search/movie", {
         params: {
             query: encodeURIComponent(term)
         }
     })
-}
+};
 
-export const tvApi = {
-    topRated: () => api.get("tv/top_rated"),
-    popular: () => api.get("tv/popular"),
-    airingToday: () => api.get("tv/airing_today"),
-    showDetail: (id) => api.get(`tv/${id}`, {
+export const tv = {
+    getPopular: () => api.get("tv/popular"),
+    getTopRated: () => api.get("tv/top_rated"),
+    getAiringToday: () => api.get("tv/airing_today"),
+    getShow: (id) => api.get(`tv/${id}`, {
         params: {
             append_to_response: "videos"
         }
     }),
-    tvSearch: (term) => api.get("search/tv", {
+    searchTv: (term) => api.get("search/tv", {
         params: {
             query: encodeURIComponent(term)
         }
     })
-}
+};

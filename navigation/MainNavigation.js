@@ -5,11 +5,16 @@ import { headerStyles } from "./config";
 
 const MainNavigation = createStackNavigator(
     {
-        Tabs: { screen: TabNavigation, navigationOptions: { header: null } },
+        Tabs: {
+            screen: TabNavigation,
+            navigationOptions: {
+                header: null
+            }
+        },
         Detail: {
             screen: DetailScreen,
             navigationOptions: {
-                ...headerStyles,
+                ...headerStyles
             }
         }
     },
